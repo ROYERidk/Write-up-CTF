@@ -23,6 +23,18 @@ info files -> check entry point to break on it
 
 info locals -> check variable values
 
+`display/i $pc` -> display the instruction at the current
+program counter ($pc).
+
+`info registers` -> display all general-purpose register
+
+`info registers rcx` -> to view the base address contained in the rcx register
+
+The command to dump memory in gdb is x, which is capable of dumping memory in many granularities and encodings.
+x/d dumps a single byte in decimal representation, x/x dumps a byte in hexadecimal representation
+x/4xw dumps four hexadecimal words (which are 4-byte integers).
+x/s, dumps a C-style string, continuing until it encounters a NULL byte.
+
 ### Explore dependencies
 
 ```bash
