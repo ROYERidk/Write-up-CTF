@@ -35,6 +35,9 @@ The command to dump memory in gdb is `x`, which is capable of dumping memory in 
 `x/4xw` dumps four hexadecimal words (which are 4-byte integers).
 `x/s` dumps a C-style string, continuing until it encounters a NULL byte.
 
+`x/s addr`
+addr example : 0x739520
+
 ### Explore dependencies
 
 ```bash
