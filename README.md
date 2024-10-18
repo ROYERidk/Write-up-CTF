@@ -116,11 +116,11 @@ in the table, and e_shentsize is the size of each section header.
 
 ### Parsing Symbols with nm (if stripped)
 
-`nm -D --demangle myfile`
+`$ nm -D --demangle myfile`
 
 #### As an alternative way of demangling function names
 
-`nm -D myfile`
+`$ nm -D myfile`
 
 find some mangled symbols name and give them to **c++filt**
 
