@@ -128,13 +128,15 @@ find some mangled symbols name and give them to **c++filt**
 
 ### Strings
 
-`strings myfile`
+`$ strings myfile`
+
 By default, strings prints only strings of four characters or more, but you can specify another minimum string length using the -n option.
 You can use the -d switch with strings to print only strings found in data sections
 
 ### Tracing System Calls
 
 -p to attach to an existing process.
+
 `$ strace ./ctf show_me_the_flag`
 
 ### Tracing Library Calls
