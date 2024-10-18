@@ -145,7 +145,9 @@ You can use the -d switch with strings to print only strings found in data secti
 ### Tracing Library Calls
 
 -p to attach to an existing process.
+
 -i option to print the instruction pointer at every library call.
+
 -C to automatically demangle C++ function names.
 
 `$ ltrace -i -C ./myfile`
