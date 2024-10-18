@@ -19,9 +19,9 @@ $ file -z myfile
 
 ### In gdb
 
-info files -> check entry point to break on it
+`info files` -> check entry point to break on it
 
-info locals -> check variable values
+`info locals` -> check variable values
 
 `display/i $pc` -> display the instruction at the current
 program counter ($pc).
