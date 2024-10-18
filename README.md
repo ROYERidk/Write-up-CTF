@@ -117,7 +117,7 @@ in the table, and e_shentsize is the size of each section header.
 
 `$ nm myfile`
 
-### Parsing Symbols with nm (if stripped)
+### if mangeled
 
 `$ nm -D --demangle myfile`
 
