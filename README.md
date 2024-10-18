@@ -80,3 +80,59 @@ $ dd skip=52 count=64 if=67b8601 of=elf_header bs=1
 64 bytes copied, 0.000404841 s, 158 kB/s
 ```
 dd is an extremely versatile tool.
+
+### Parsing the Extracted ELF with readelf
+
+```bash
+$ readelf -h myelffile
+```
+The -h option tells readelf to print only the executable header.
+
+how can you figure out the size of the complete ELF using nothing but the executable header?
+The offset to the section header table is given in the executable header. The executable header also tells you the size of each section header and the number of section headers in the table. This means you can calculate the size of the complete ELF library hidden in your bitmap file as follows:
+
+**size = e_shoff + (e_shnum * e_shentsize)**
+
+size is the size of the complete library, e_shoff is the
+offset to the section header table, e_shnum is the number of section headers
+in the table, and e_shentsize is the size of each section header.
+*(dd to extract)*
+
+### Parsing Symbols with nm (if not stripped)
+
+`$ nm myfile`
+
+### Parsing Symbols with nm (if stripped)
+
+`nm -D --demangle myfile`
+
+#### As an alternative way of demangling function names
+
+`nm -D myfile`
+
+find some mangled symbols name and give them to **c++filt**
+
+`$ c++filt _Z8rc4_initP11rc4_state_tPhi`
+
+### Strings
+
+`strings myfile`
+By default, strings prints only strings of four characters or more, but you can specify another minimum string length using the -n option.
+You can use the -d switch with strings to print only strings found in data sections
+
+### Tracing System Calls
+
+-p to attach to an existing process.
+`$ strace ./ctf show_me_the_flag`
+
+### Tracing Library Calls
+
+-p to attach to an existing process.
+-i option to print the instruction pointer at every library call.
+-C to automatically demangle C++ function names.
+
+`$ ltrace -i -C ./myfile`
+
+### Examining Instruction-Level Behavior
+
+`$ objdump -s --section .rodata myfile`
